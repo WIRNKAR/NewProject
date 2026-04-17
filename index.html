@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Premium e-commerce store with quality products. Order directly via WhatsApp.">
-    <meta property="og:title" content="Your Store Name">
-    <meta property="og:description" content="Quality products at best prices">
+    <meta name="description" content="Beli Metal Fabrication - Premium welding & metal fabrication services in Douala, Cameroon. Custom fabrication for construction, infrastructure & bespoke projects.">
+    <meta property="og:title" content="Beli Metal Fabrication">
+    <meta property="og:description" content="Premium welding products and custom fabrication services">
     <meta property="og:type" content="website">
     
-    <title>Your E-Commerce Store</title>
+    <title>Beli Metal Fabrication - Welding & Metal Fabrication Services</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
 
     <!-- ==================== HEADER & NAVIGATION ==================== -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold" href="#home">
                     <i class="fas fa-hammer"></i> Beli Metal Fabrication
@@ -42,16 +42,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#home">Home</a>
+                            <a class="nav-link" href="#home">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#products">Products</a>
+                            <a class="nav-link" href="#products">PRODUCTS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="#videos">VIDEOS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#social">Follow Us</a>
+                            <a class="nav-link" href="#contact">CONTACT</a>
                         </li>
                     </ul>
                 </div>
@@ -64,32 +64,80 @@
         <!-- HERO SECTION -->
         <section id="home" class="hero-section py-5 bg-gradient">
             <div class="container text-center">
-                <h1 class="display-5 fw-bold mb-3" data-aos="fade-up">FORGED IN FIRE. BUILT TO LAST.</h1>
+                <h1 class="display-4 fw-bold mb-3 hero-title" data-aos="fade-up">FORGED IN FIRE.<br>BUILT TO LAST.</h1>
                 <p class="lead text-muted mb-4" data-aos="fade-up" data-aos-delay="100">
-                    Premium metal fabrication & welding services. 500+ successful projects. Trusted for over 10 years.
+                    Premium welding products and custom fabrication services for construction,<br>infrastructure, and bespoke projects.
                 </p>
-                <button class="btn btn-primary btn-lg" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" data-aos="fade-up" data-aos-delay="200">
-                    View Our Work
-                </button>
+                <div class="d-flex gap-3 justify-content-center flex-wrap" data-aos="fade-up" data-aos-delay="200">
+                    <button class="btn btn-danger btn-lg" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                        View Products
+                    </button>
+                    <button class="btn btn-outline-danger btn-lg" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                        Get a Quote
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS SECTION -->
+        <section class="stats-section py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row g-4 text-center">
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                        <div class="stat-card">
+                            <h3 class="stat-number text-danger">500+</h3>
+                            <p class="stat-label">PROJECTS COMPLETED</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-card">
+                            <h3 class="stat-number text-danger">10+</h3>
+                            <p class="stat-label">YEARS EXPERIENCE</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-card">
+                            <h3 class="stat-number text-danger">100%</h3>
+                            <p class="stat-label">QUALITY GUARANTEED</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-card">
+                            <h3 class="stat-number text-danger">24h</h3>
+                            <p class="stat-label">FAST TURNAROUND</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery" class="gallery-section py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 section-title" data-aos="fade-up">GALLERY</h2>
+                <p class="text-center text-muted mb-5 lead" data-aos="fade-up" data-aos-delay="50">Browse our collection of welding projects and products.</p>
+                
+                <div class="row g-4" id="galleryGrid">
+                    <!-- Gallery items generated by JavaScript -->
+                </div>
             </div>
         </section>
 
         <!-- PRODUCTS GRID SECTION -->
         <section id="products" class="products-section py-5">
             <div class="container">
-                <h2 class="text-center mb-5 section-title" data-aos="fade-up">Our Products</h2>
+                <h2 class="text-center mb-2 section-title" data-aos="fade-up">OUR PRODUCTS</h2>
+                <p class="text-center text-muted mb-5" data-aos="fade-up">Featured Products</p>
                 
                 <!-- Product Grid: 2 columns on mobile, 3 on tablet+ -->
                 <div class="row g-4" id="productsGrid">
                     <!-- Products generated by JavaScript -->
-                    <!-- See sample structure below -->
                 </div>
             </div>
         </section>
 
         <!-- SAMPLE PRODUCT STRUCTURE (Remove after JS generates them) -->
         <section style="display: none;">
-            <div class="col-6 col-md-4">
                 <div class="product-card" data-aos="fade-up">
                     <div class="product-image-wrapper">
                         <img src="assets/images/products/product-placeholder.jpg" alt="Product Name" class="img-fluid">
@@ -109,118 +157,86 @@
             </div>
         </section>
 
-        <!-- VIDEO SECTION 1 -->
-        <section id="video-1" class="video-section py-5 bg-light">
+        <!-- VIDEO SECTION - PROJECT VIDEOS -->
+        <section id="videos" class="videos-section py-5 bg-light">
             <div class="container">
-                <div class="row align-items-center g-4">
-                    <div class="col-lg-6" data-aos="fade-right">
-                        <h2 class="section-title mb-3">How We Work</h2>
-                        <p class="text-muted mb-3">
-                            We are committed to providing the highest quality products. Our production process ensures every item meets strict quality standards.
-                        </p>
-                        <p class="text-muted">
-                            Watch how we carefully craft each product with attention to detail and care.
-                        </p>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-left">
-                        <video 
-                            width="100%" 
-                            height="auto" 
-                            controls 
-                            playsinline
-                            preload="metadata"
-                            poster="assets/videos/video1-thumbnail.jpg"
-                            class="rounded-3">
-                            <source src="assets/videos/production-showcase-1.mp4" type="video/mp4">
-                            Your browser doesn't support HTML5 video.
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEATURES SECTION (Optional) -->
-        <section class="features-section py-5 bg-white">
-            <div class="container">
-                <h2 class="text-center section-title mb-5" data-aos="fade-up">Why Choose Us?</h2>
+                <h2 class="text-center mb-2 section-title" data-aos="fade-up">PROJECT VIDEOS</h2>
+                <p class="text-center text-muted mb-5 lead" data-aos="fade-up">Watch our welding projects in action.</p>
+                
                 <div class="row g-4">
-                    <div class="col-md-6 col-lg-3" data-aos="fade-up">
-                        <div class="feature-card text-center p-4">
-                            <i class="fas fa-shipping-fast fa-3x text-primary mb-3"></i>
-                            <h5>Fast Delivery</h5>
-                            <p class="text-muted">Quick shipping to your doorstep</p>
+                    <!-- Video Upload Cards -->
+                    <div class="col-md-6" data-aos="fade-up">
+                        <div class="video-upload-card p-5 text-center">
+                            <h5 class="mb-4">Upload Video File</h5>
+                            <div class="upload-area border-2 border-dashed rounded p-5">
+                                <i class="fas fa-cloud-upload-alt fa-3x text-danger mb-3"></i>
+                                <p class="mb-2">Click to upload or drag and drop</p>
+                                <p class="small text-muted">MP4, WebM (Max 100MB)</p>
+                                <input type="file" class="form-control d-none" accept="video/mp4,video/webm">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                        <div class="feature-card text-center p-4">
-                            <i class="fas fa-lock fa-3x text-primary mb-3"></i>
-                            <h5>Secure Payment</h5>
-                            <p class="text-muted">Safe and encrypted transactions</p>
+                    
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="video-upload-card p-5 text-center">
+                            <h5 class="mb-4">Upload Another Video</h5>
+                            <div class="upload-area border-2 border-dashed rounded p-5">
+                                <i class="fas fa-cloud-upload-alt fa-3x text-danger mb-3"></i>
+                                <p class="mb-2">Click to upload or drag and drop</p>
+                                <p class="small text-muted">MP4, WebM (Max 100MB)</p>
+                                <input type="file" class="form-control d-none" accept="video/mp4,video/webm">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                        <div class="feature-card text-center p-4">
-                            <i class="fas fa-quality-assurance fa-3x text-primary mb-3"></i>
-                            <h5>Quality Assured</h5>
-                            <p class="text-muted">All products tested for quality</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                        <div class="feature-card text-center p-4">
-                            <i class="fas fa-headset fa-3x text-primary mb-3"></i>
-                            <h5>24/7 Support</h5>
-                            <p class="text-muted">Always here to help you</p>
-                        </div>
-                    </div>
+                </div>
+
+                <!-- Video Grid -->
+                <div id="videoGrid" class="row g-4 mt-5">
+                    <!-- Videos will be displayed here -->
                 </div>
             </div>
         </section>
 
-        <!-- VIDEO SECTION 2 -->
-        <section id="video-2" class="video-section py-5 bg-light">
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section py-5 bg-dark text-white">
             <div class="container">
-                <div class="row align-items-center g-4 flex-lg-row-reverse">
-                    <div class="col-lg-6" data-aos="fade-left">
-                        <h2 class="section-title mb-3">Product Testing</h2>
-                        <p class="text-muted mb-3">
-                            Every product undergoes rigorous testing to ensure it meets our high standards.
-                        </p>
-                        <p class="text-muted">
-                            From raw materials to finished products, quality is our top priority.
-                        </p>
-                    </div>
+                <h2 class="text-center section-title text-white mb-2" data-aos="fade-up">GET IN TOUCH</h2>
+                <p class="text-center text-light mb-5" data-aos="fade-up">Have a project in mind? Reach out to us today. We're here to help.</p>
+                
+                <div class="row g-5 mb-5">
+                    <!-- Contact Info -->
                     <div class="col-lg-6" data-aos="fade-right">
-                        <video 
-                            width="100%" 
-                            height="auto" 
-                            controls 
-                            playsinline
-                            preload="metadata"
-                            poster="assets/videos/video2-thumbnail.jpg"
-                            class="rounded-3">
-                            <source src="assets/videos/production-showcase-2.mp4" type="video/mp4">
-                            Your browser doesn't support HTML5 video.
-                        </video>
+                        <div class="contact-info">
+                            <div class="info-item mb-4">
+                                <h5 class="text-danger mb-2"><i class="fas fa-map-marker-alt"></i> LOCATION</h5>
+                                <p>Douala, Littoral Region, Cameroon</p>
+                            </div>
+                            <div class="info-item mb-4">
+                                <h5 class="text-danger mb-2"><i class="fas fa-phone"></i> PHONE / WHATSAPP</h5>
+                                <p><a href="https://wa.me/23767686995" class="text-decoration-none text-light" onclick="openWhatsApp('+23767686995'); return false;">+237 676 866 995</a></p>
+                            </div>
+                            <div class="info-item mb-4">
+                                <h5 class="text-danger mb-2"><i class="fas fa-envelope"></i> EMAIL</h5>
+                                <p><a href="mailto:shop@sheyeugine.com" class="text-decoration-none text-light">shop@sheyeugine.com</a></p>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://wa.me/23767686995" class="btn btn-sm btn-danger me-2"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <a href="https://facebook.com/sheyeugene" class="btn btn-sm btn-outline-light"><i class="fab fa-facebook"></i> Facebook</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- CONTACT FORM SECTION -->
-        <section id="contact" class="contact-section py-5 bg-white">
-            <div class="container">
-                <h2 class="text-center section-title mb-5" data-aos="fade-up">Get in Touch</h2>
-                <div class="row justify-content-center">
-                    <div class="col-lg-6" data-aos="fade-up">
+                    <!-- Contact Form -->
+                    <div class="col-lg-6" data-aos="fade-left">
                         <form id="contact-form" class="contact-form" novalidate>
                             <div class="mb-4">
                                 <label for="name" class="form-label fw-bold">Full Name</label>
                                 <input 
                                     type="text" 
-                                    class="form-control" 
+                                    class="form-control bg-dark text-white border-secondary" 
                                     id="name" 
                                     name="name" 
-                                    placeholder="John Doe"
+                                    placeholder="Your Name"
                                     required>
                                 <div class="invalid-feedback">
                                     Please provide a valid name.
@@ -231,10 +247,10 @@
                                 <label for="email" class="form-label fw-bold">Email Address</label>
                                 <input 
                                     type="email" 
-                                    class="form-control" 
+                                    class="form-control bg-dark text-white border-secondary" 
                                     id="email" 
                                     name="email" 
-                                    placeholder="john@example.com"
+                                    placeholder="your@email.com"
                                     required>
                                 <div class="invalid-feedback">
                                     Please provide a valid email address.
@@ -242,35 +258,35 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="phone" class="form-label fw-bold">Phone Number</label>
-                                <input 
-                                    type="tel" 
-                                    class="form-control" 
-                                    id="phone" 
-                                    name="phone" 
-                                    placeholder="+1 (234) 567-8900"
-                                    required>
+                                <label for="service" class="form-label fw-bold">Service Needed</label>
+                                <select class="form-select bg-dark text-white border-secondary" id="service" name="service" required>
+                                    <option value="">Select a service...</option>
+                                    <option value="custom_fabrication">Custom Fabrication</option>
+                                    <option value="welding">Welding Services</option>
+                                    <option value="design">Design & Engineering</option>
+                                    <option value="other">Other</option>
+                                </select>
                                 <div class="invalid-feedback">
-                                    Please provide a valid phone number.
+                                    Please select a service.
                                 </div>
                             </div>
 
                             <div class="mb-4">
                                 <label for="message" class="form-label fw-bold">Message</label>
                                 <textarea 
-                                    class="form-control" 
+                                    class="form-control bg-dark text-white border-secondary" 
                                     id="message" 
                                     name="message" 
-                                    rows="5" 
-                                    placeholder="Your message here..."
+                                    rows="4" 
+                                    placeholder="Tell us about your project..."
                                     required></textarea>
                                 <div class="invalid-feedback">
                                     Please provide a message.
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-lg w-100">
-                                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                            <button type="submit" class="btn btn-danger btn-lg w-100">
+                                <i class="fab fa-whatsapp"></i> Send Message
                             </button>
                         </form>
                     </div>
@@ -279,37 +295,53 @@
         </section>
 
         <!-- SOCIAL MEDIA SECTION -->
-        <section id="social" class="social-section py-5 bg-dark text-white">
-            <div class="container text-center">
-                <h2 class="section-title text-white mb-5" data-aos="fade-up">Follow Us</h2>
-                <div class="social-icons d-flex justify-content-center gap-4 flex-wrap" data-aos="fade-up">
-                    <a href="#facebook" class="social-icon facebook" title="Facebook" aria-label="Visit our Facebook page">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#instagram" class="social-icon instagram" title="Instagram" aria-label="Visit our Instagram profile">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#twitter" class="social-icon twitter" title="Twitter" aria-label="Visit our Twitter profile">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#youtube" class="social-icon youtube" title="YouTube" aria-label="Visit our YouTube channel">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="#whatsapp" class="social-icon whatsapp" title="WhatsApp" aria-label="Contact us on WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+        <section class="social-info-section py-5 bg-secondary text-white">
+            <div class="container">
+                <h2 class="text-center section-title text-white mb-5" data-aos="fade-up">QUICK LINKS</h2>
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                        <h6 class="text-danger mb-3"><i class="fas fa-arrow-right"></i> Navigation</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#home" class="text-light text-decoration-none">Home</a></li>
+                            <li class="mb-2"><a href="#products" class="text-light text-decoration-none">Products</a></li>
+                            <li class="mb-2"><a href="#videos" class="text-light text-decoration-none">Videos</a></li>
+                            <li class="mb-2"><a href="#contact" class="text-light text-decoration-none">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <h6 class="text-danger mb-3"><i class="fas fa-clock"></i> WORKING HOURS</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">Mon-Fri: 7:00 AM - 6:00 PM</li>
+                            <li class="mb-2">Saturday: 8:00 AM - 4:00 PM</li>
+                            <li class="mb-2">Sunday: Closed</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="footer bg-dark text-white py-4">
-        <div class="container text-center">
-            <p class="mb-2">&copy; 2024 Your Store. All rights reserved.</p>
-            <p class="small text-muted mb-0">
-                Built with HTML5, CSS3, Bootstrap 5, and Vanilla JavaScript
-            </p>
+    <footer class="footer bg-black text-white py-5">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <h5 class="mb-3">Beli Metal Fabrication</h5>
+                    <p class="text-muted"><strong>Premium welding and metal fabrication services for construction, infrastructure, and bespoke projects.</strong></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted">EST. 2015 — DOUALA, CAMEROON</p>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="row text-center text-md-start">
+                <div class="col-md-6">
+                    <p class="mb-2">&copy; 2026 Beli Metal Fabrication. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small text-muted mb-0">Made with <i class="fas fa-heart text-danger"></i> in Douala, Cameroon</p>
+                </div>
+            </div>
         </div>
     </footer>
 
