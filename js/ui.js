@@ -319,6 +319,39 @@ class UIManager {
         `;
     }
 
+    /**
+     * Generate gallery item HTML
+     * @param {Object} product - Product object
+     * @returns {string} HTML string for gallery item
+     */
+    generateGalleryItem(product) {
+        if (!product || !product.id) {
+            console.error('❌ Invalid product data');
+            return '';
+        }
+
+        return `
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="gallery-item" data-product-id="${product.id}" data-aos="fade-up">
+                    <img 
+                        src="${this.escapeHTML(product.image)}" 
+                        alt="${this.escapeHTML(product.name)}" 
+                        class="img-fluid"
+                        loading="lazy"
+                    />
+                    <a href="${this.escapeHTML(product.imageFull)}" 
+                       class="glightbox-gallery" 
+                       data-glightbox="gallery: products"
+                       aria-label="View ${this.escapeHTML(product.name)}">
+                        <span class="gallery-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+
     // ==================== UTILITY FUNCTIONS ====================
 
     /**

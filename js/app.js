@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function initializeApp() {
     loadProducts();
+    renderGallery();
     renderProducts();
 }
 
@@ -214,6 +215,41 @@ function renderProducts() {
     if (window.GLightbox) {
         initGLightbox();
     }
+}
+
+/**
+ * Render gallery with product images
+ */
+function renderGallery() {
+    const galleryGrid = document.getElementById('galleryGrid');
+    
+    if (!galleryGrid) {
+        console.warn('⚠️ Gallery grid not found');
+        return;
+    }
+    
+    if (appState.products.length === 0) {
+        galleryGrid.innerHTML = '<p class="col-12 text-center text-muted">No images available</p>';
+        return;
+    }
+    
+    const galleryHTML = appState.products
+        .map(product => uiManager.generateGalleryItem(product))
+        .join('');
+    
+    galleryGrid.innerHTML = galleryHTML;
+    
+    // Reinitialize AOS for dynamically added elements
+    if (window.AOS && !CONFIG.REDUCE_MOTION) {
+        AOS.refresh();
+    }
+    
+    // Reinitialize GLightbox for gallery images
+    if (window.GLightbox) {
+        initGLightbox();
+    }
+    
+    console.log('🖼️ Gallery rendered with ' + appState.products.length + ' items');
 }
 
 /**
