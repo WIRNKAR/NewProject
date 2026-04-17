@@ -1,0 +1,194 @@
+# ============================================================
+# Git Ignore Configuration
+# Mobile-First E-Commerce Website Project
+# ============================================================
+
+# ==================== ENVIRONMENT & CONFIG ====================
+# Environment variables and sensitive credentials
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ==================== NODE & NPM ====================
+# Node.js dependencies (if using build tools)
+node_modules/
+npm-debug.log
+npm-debug.log.*
+yarn-error.log
+yarn-debug.log
+package-lock.json
+pnpm-lock.yaml
+
+# ==================== OS & SYSTEM FILES ====================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+.windows/
+ehthumbs.db
+
+# Linux
+.directory
+*~
+*.swp
+*.swo
+
+# ==================== IDE & EDITOR ====================
+# Visual Studio Code
+.vscode/
+.vscode/**/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.code-workspace
+*.code-workspace
+
+# JetBrains IDEs (WebStorm, IntelliJ IDEA)
+.idea/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Notepad++
+.nppBackup
+
+# Vim
+.vim/
+*.vim
+
+# ==================== BUILD & DISTRIBUTION ====================
+# Production builds
+dist/
+build/
+*.min.js
+*.min.css
+*.min.map
+
+# Compiled CSS from SCSS (if applicable)
+/.sass-cache/
+*.scss.js
+
+# ==================== TESTING & COVERAGE ====================
+# Test coverage reports
+coverage/
+.nyc_output/
+cypress/videos/
+cypress/screenshots/
+.coverage
+
+# Jest
+.jest/
+
+# ==================== CACHE & TEMPORARY FILES ====================
+# Cache files
+.cache/
+.next/
+out/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+~*
+
+# npm/yarn cache
+.npm/
+.yarn/cache/
+.yarn/install-state.gz
+
+# ==================== DEPENDENCIES & MODULES ====================
+# Bundle analyzer
+.bundle-report.html
+dist-stats.json
+
+# ==================== LOGS ====================
+# Log files
+logs/
+*.log
+*.logs
+lerna-debug.log*
+
+# ==================== DOCKER ====================
+# Docker volumes
+volumes/
+.docker/
+
+# ==================== VSCODE DEBUG ====================
+# VS Code debug
+.vscode/launch.json
+.vscode/tasks.json
+debug.log
+
+# ==================== SCREENSHOTS & PERFORMANCE ====================
+# Lighthouse reports
+lighthouse-*.json
+*.lighthouse.json
+
+# Performance test results
+*.perf.json
+performance-report/
+
+# ==================== MISCELLANEOUS ====================
+# OS lock files
+.lock
+*.lock
+!package-lock.json
+
+# IDE suggestion/configuration files
+.editorconfig.local
+.prettierrc.local
+
+# Archive files
+*.zip
+*.rar
+*.tar.gz
+*.7z
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup folders
+backup/
+/backups/
+old-version/
+
+# Sensitive data
+*.psd
+*.sketch
+credentials.json
+config.secret.json
+
+# ==================== PROJECT SPECIFIC ====================
+# Uploaded media (if using dynamic uploads)
+uploads/
+user-uploads/
+temp-uploads/
+
+# Generated assets (if using build tools)
+/public/generated/
+/assets/generated/
+
+# ==================== GIT ====================
+# Git merge conflicts
+*.rej
+*.orig
+
+# Git stash
+.git/objects/pack/*.keep
