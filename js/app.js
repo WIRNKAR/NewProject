@@ -32,6 +32,86 @@ const appState = {
     isFormSubmitting: false,
 };
 
+// ==================== SESSION MANAGEMENT ====================
+
+let currentUser = null;
+
+// Check user session on page load
+async function checkUserSession() {
+    try {
+        const response = await fetch('/api/auth/me', {
+            credentials: 'include'
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            currentUser = data.user;
+            
+            // Show admin-only elements
+            document.querySelectorAll('.admin-only').forEach(el => {
+                el.classList.add('visible');
+            });
+            
+            // Update navbar
+            updateNavbarForAdmin();
+        } else {
+            // User not logged in
+            currentUser = null;
+            document.querySelectorAll('.admin-only').forEach(el => {
+                el.classList.remove('visible');
+            });
+        }
+    } catch (error) {
+        console.error('Session check error:', error);
+    }
+}
+
+function updateNavbarForAdmin() {
+    const navbarNav = document.querySelector('.navbar-nav');
+    
+    // Remove existing login/logout buttons if any
+    const existingAuthBtn = navbarNav.querySelector('#authBtn');
+    if (existingAuthBtn) {
+        existingAuthBtn.remove();
+    }
+    
+    if (currentUser) {
+        // Create logout button
+        const logoutItem = document.createElement('li');
+        logoutItem.className = 'nav-item';
+        logoutItem.id = 'authBtn';
+        logoutItem.innerHTML = `
+            <a class="nav-link" href="#" onclick="logout(); return false;">
+                <i class="fas fa-sign-out-alt"></i> LOGOUT
+            </a>
+        `;
+        navbarNav.appendChild(logoutItem);
+    } else {
+        // Create login button
+        const loginItem = document.createElement('li');
+        loginItem.className = 'nav-item';
+        loginItem.id = 'authBtn';
+        loginItem.innerHTML = `
+            <a class="nav-link btn btn-sm btn-danger text-white ms-2" href="/login.html">
+                <i class="fas fa-lock"></i> LOGIN
+            </a>
+        `;
+        navbarNav.appendChild(loginItem);
+    }
+}
+
+async function logout() {
+    try {
+        await fetch('/api/auth/logout', {
+            method: 'POST',
+            credentials: 'include'
+        });
+        window.location.href = '/';
+    } catch (error) {
+        console.error('Logout error:', error);
+    }
+}
+
 // ==================== SAMPLE PRODUCTS DATA ====================
 // Replace with actual product data or fetch from API
 
