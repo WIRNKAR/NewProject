@@ -33,7 +33,7 @@ Replace the placeholder WhatsApp number with the actual business number in the c
 ```javascript
 // ==================== GLOBAL CONFIG ====================
 const CONFIG = {
-    WHATSAPP_NUMBER: '+237XXXXXXXXXX', // REPLACE WITH ACTUAL NUMBER
+    WHATSAPP_NUMBER: '+237621869931', // REPLACE WITH ACTUAL NUMBER
     FORM_VALIDATION: true,
     DEBUG_MODE: true,
     ANIMATIONS_ENABLED: true,
@@ -46,7 +46,7 @@ Replace `'+237XXXXXXXXXX'` with the actual business phone number in internationa
 ```javascript
 // ==================== GLOBAL CONFIG ====================
 const CONFIG = {
-    WHATSAPP_NUMBER: '+237676866995', // Beli Metal Fabrication
+    WHATSAPP_NUMBER: '+237621869931', // Beli Metal Fabrication
     FORM_VALIDATION: true,
     DEBUG_MODE: true,
     ANIMATIONS_ENABLED: true,
@@ -56,19 +56,19 @@ const CONFIG = {
 ### Key Details:
 - **Business Name:** Beli Metal Fabrication
 - **Phone Number:** +237 676 866 995 (remove spaces when saving)
-- **International Format:** +237676866995
+- **International Format:** ++237621869931
 - **Location:** Douala, Littoral Region, Cameroon
 
 ### How to Verify:
 After saving, test by:
 1. Open browser console (F12)
 2. Type: `console.log(CONFIG.WHATSAPP_NUMBER)`
-3. Should output: `+237676866995`
+3. Should output: `++237621869931`
 
 ### 📌 Deliverable:
 - [ ] WhatsApp number configured in CONFIG
 - [ ] Console test confirms correct format
-- [ ] Git commit: `[dev2] Task 1: Configure WhatsApp business number (+237676866995)`
+- [ ] Git commit: `[dev2] Task 1: Configure WhatsApp business number (++237621869931)`
 
 ---
 
@@ -194,7 +194,7 @@ Test the contact form validation to ensure all fields work correctly.
 2. Fill form with valid data:
    - **Name:** John Doe
    - **Email:** john@example.com
-   - **Phone:** +237676866995
+   - **Phone:** ++237621869931
    - **Message:** I'm interested in structural steel welding services
 3. Click "Send Message"
 4. **Expected:** Green success message appears, form clears
@@ -267,7 +267,7 @@ Hi Beli Metal Fabrication! I'm interested in your Structural Steel Welding servi
 
 #### Test 4.3: WhatsApp Number Format
 1. Open browser console (F12)
-2. Type: `whatsappAPI.validateAndFormatNumber('+237676866995')`
+2. Type: `whatsappAPI.validateAndFormatNumber('++237621869931')`
 3. **Expected:** Returns `true`
 
 #### Test 4.4: Message Generation
@@ -373,7 +373,7 @@ Before marking tasks complete, run through this checklist:
 
 ```
 TASK 1: WhatsApp Configuration
-- [ ] Phone number set to +237676866995
+- [ ] Phone number set to ++237621869931
 - [ ] Console test confirms correct format
 - [ ] No syntax errors
 
@@ -425,7 +425,7 @@ whatsappAPI.generateProductMessage('Structural Steel Welding', 45000);
 
 // Test form validation
 contactFormValidator.validateEmail('test@example.com');
-contactFormValidator.validatePhone('+237676866995');
+contactFormValidator.validatePhone('++237621869931');
 
 // Check all event listeners
 getEventListeners(document);
@@ -505,7 +505,7 @@ Example:
 ```
 [dev2] Task 1: Configure WhatsApp business number
 
-- Updated CONFIG.WHATSAPP_NUMBER to +237676866995
+- Updated CONFIG.WHATSAPP_NUMBER to ++237621869931
 - Tested format validation in console
 - Confirmed international format
 ```
