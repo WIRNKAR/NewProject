@@ -9,10 +9,10 @@
 
 const CONFIG = {
     // WhatsApp Business Number (Format: +country_code + number)
-    WHATSAPP_NUMBER: '+1234567890',  // CHANGE THIS TO YOUR BUSINESS NUMBER
+    WHATSAPP_NUMBER: '+23767686995',  // Beli Metal Fabrication WhatsApp
     
     // Application Settings
-    PRODUCT_CURRENCY: 'USD',
+    PRODUCT_CURRENCY: 'XAF',
     FORM_SUBMIT_DELAY: 500,
     
     // Feature Flags
@@ -32,56 +32,56 @@ const appState = {
 };
 
 // ==================== SAMPLE PRODUCTS DATA ====================
-// Replace with actual product data or fetch from API
+// Metal Fabrication Products for Beli
 
 const SAMPLE_PRODUCTS = [
     {
         id: '1',
-        name: 'Premium Leather Handbag',
-        price: '29.99',
-        description: 'High-quality leather handbag with adjustable straps',
-        image: 'https://via.placeholder.com/400x400?text=Product+1',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+1+Full'
+        name: 'Steel Structural Beams',
+        price: 'Quote on Request',
+        description: 'High-quality steel beams for construction and infrastructure projects',
+        image: 'https://via.placeholder.com/400x400?text=Steel+Beams',
+        imageFull: 'https://via.placeholder.com/1000x1000?text=Steel+Beams+Full'
     },
     {
         id: '2',
-        name: 'Classic Watch',
-        price: '49.99',
-        description: 'Elegant timepiece with stainless steel case',
-        image: 'https://via.placeholder.com/400x400?text=Product+2',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+2+Full'
+        name: 'Custom Welded Frames',
+        price: 'Quote on Request',
+        description: 'Custom fabricated metal frames for various industrial applications',
+        image: 'https://via.placeholder.com/400x400?text=Welded+Frames',
+        imageFull: 'https://via.placeholder.com/1000x1000?text=Welded+Frames+Full'
     },
     {
         id: '3',
-        name: 'Sunglasses Collection',
-        price: '39.99',
-        description: 'UV protection with trendy design',
-        image: 'https://via.placeholder.com/400x400?text=Product+3',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+3+Full'
+        name: 'Steel Staircases',
+        price: 'Quote on Request',
+        description: 'Modern and durable steel staircases with custom designs',
+        image: 'https://via.placeholder.com/400x400?text=Staircases',
+        imageFull: 'https://via.placeholder.com/1000x1000?text=Staircases+Full'
     },
     {
         id: '4',
-        name: 'Wireless Headphones',
-        price: '79.99',
-        description: 'Noise-canceling with premium sound quality',
-        image: 'https://via.placeholder.com/400x400?text=Product+4',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+4+Full'
+        name: 'Metal Gates & Railings',
+        price: 'Quote on Request',
+        description: 'Decorative and functional metal gates with elegant designs',
+        image: 'https://via.placeholder.com/400x400?text=Gates+Railings',
+        imageFull: 'https://via.placeholder.com/1000x1000?text=Gates+Railings+Full'
     },
     {
         id: '5',
-        name: 'Phone Case',
-        price: '19.99',
-        description: 'Durable protection with stylish design',
-        image: 'https://via.placeholder.com/400x400?text=Product+5',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+5+Full'
+        name: 'Industrial Piping',
+        price: 'Quote on Request',
+        description: 'High-grade welded pipes for industrial and commercial use',
+        image: 'https://via.placeholder.com/400x400?text=Industrial+Pipes',
+        imageFull: 'https://via.placeholder.com/1000x1000?text=Industrial+Pipes+Full'
     },
     {
         id: '6',
-        name: 'Portable Charger',
-        price: '34.99',
-        description: 'Fast charging 20000mAh power bank',
-        image: 'https://via.placeholder.com/400x400?text=Product+6',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+6+Full'
+        name: 'Custom Metal Containers',
+        price: 'Quote on Request',
+        description: 'Custom-built metal containers and tanks for storage solutions',
+        image: 'https://via.placeholder.com/400x400?text=Metal+Containers',
+        imageFull: 'https://via.placeholder.com/1000x1000?text=Metal+Containers+Full'
     }
 ];
 
@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeApp() {
     loadProducts();
     renderProducts();
+    renderGallery();
 }
 
 /**
@@ -207,6 +208,44 @@ function renderProducts() {
     // Reinitialize GLightbox for dynamically added images
     if (window.GLightbox) {
         initGLightbox();
+    }
+}
+
+/**
+ * Render gallery items to the DOM
+ */
+function renderGallery() {
+    const galleryGrid = document.getElementById('galleryGrid');
+    
+    if (!galleryGrid) {
+        console.warn('⚠️ Gallery grid not found');
+        return;
+    }
+    
+    // Use products as gallery items
+    const galleryHTML = appState.products
+        .map(item => `
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+                <a href="${item.imageFull}" class="glightbox-gallery" data-glightbox="gallery: welding">
+                    <span class="gallery-icon"><i class="fas fa-search-plus"></i></span>
+                </a>
+            </div>
+        `)
+        .join('');
+    
+    galleryGrid.innerHTML = galleryHTML;
+    
+    // Reinitialize AOS for dynamically added elements
+    if (window.AOS && !CONFIG.REDUCE_MOTION) {
+        AOS.refresh();
+    }
+    
+    // Reinitialize GLightbox for gallery
+    if (window.GLightbox) {
+        GLightbox({
+            selector: '.glightbox-gallery',
+        });
     }
 }
 
