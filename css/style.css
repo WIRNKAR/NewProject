@@ -262,16 +262,19 @@ header {
 
 #galleryGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 1.5rem;
+    justify-content: center;
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
     border-radius: var(--border-radius-lg);
-    aspect-ratio: 1 / 1;
+    width: 300px;
+    height: 300px;
     background: #f0f0f0;
+    margin: 0 auto;
 }
 
 .gallery-item img {
@@ -322,6 +325,51 @@ header {
     opacity: 1;
 }
 
+/* Product Item - Same style as Gallery */
+.product-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    width: 300px;
+    height: 300px;
+    background: #f0f0f0;
+    margin: 0 auto;
+}
+
+.product-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+}
+
+@media (hover: hover) {
+    .product-item:hover img {
+        transform: scale(1.05);
+    }
+}
+
+.product-item a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0);
+    transition: background var(--transition-fast);
+}
+
+.product-item a:hover {
+    background: rgba(220, 53, 69, 0.7);
+}
+
+.product-item a:hover .gallery-icon {
+    opacity: 1;
+}
+
 /* ============================================================
    5. PRODUCTS SECTION (Grid Layout)
    ============================================================ */
@@ -356,22 +404,21 @@ header {
 /* Product Grid - Mobile First */
 #productsGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* 2 columns on mobile */
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 1.5rem;
+    justify-content: center;
 }
 
-/* Tablet: 3 columns */
+/* Tablet and desktop adjust automatically with auto-fit */
 @media (min-width: 768px) {
     #productsGrid {
-        grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
     }
 }
 
-/* Desktop: 4 columns */
+/* Desktop: larger gap */
 @media (min-width: 1200px) {
     #productsGrid {
-        grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
 }
@@ -410,10 +457,11 @@ header {
 
 .product-image-wrapper {
     position: relative;
-    width: 100%;
-    padding-bottom: 100%; /* 1:1 aspect ratio */
+    width: 300px;
+    height: 300px;
     overflow: hidden;
     background: #f8f9fa;
+    margin: 0 auto;
 }
 
 .product-image-wrapper img {

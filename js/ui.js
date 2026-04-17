@@ -280,40 +280,22 @@ class UIManager {
         }
 
         return `
-            <div class="col-6 col-md-4">
-                <div class="product-card" data-product-id="${product.id}" data-aos="fade-up">
-                    <div class="product-image-wrapper">
-                        <img 
-                            src="${this.escapeHTML(product.image)}" 
-                            alt="${this.escapeHTML(product.name)}" 
-                            class="img-fluid"
-                            loading="lazy"
-                        />
-                        <a href="${this.escapeHTML(product.imageFull)}" 
-                           class="glightbox-product" 
-                           data-glightbox="gallery: products">
-                            <span class="zoom-icon">
-                                <i class="fas fa-search-plus"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="product-info pt-3">
-                        <h5 class="product-name">${this.escapeHTML(product.name)}</h5>
-                        <p class="product-description text-muted small">
-                            ${this.escapeHTML(product.description)}
-                        </p>
-                        <p class="product-price text-primary">
-                            <strong>${CONFIG.PRODUCT_CURRENCY} ${this.escapeHTML(product.price)}</strong>
-                        </p>
-                        <button 
-                            class="btn btn-sm btn-success w-100 order-btn" 
-                            data-product-id="${product.id}" 
-                            data-product-name="${this.escapeHTML(product.name)}"
-                            data-product-price="${this.escapeHTML(product.price)}"
-                            aria-label="Order ${this.escapeHTML(product.name)} on WhatsApp">
-                            <i class="fab fa-whatsapp"></i> Order on WhatsApp
-                        </button>
-                    </div>
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
+                <div class="product-item" data-product-id="${product.id}">
+                    <img 
+                        src="${this.escapeHTML(product.image)}" 
+                        alt="${this.escapeHTML(product.name)}" 
+                        class="img-fluid"
+                        loading="lazy"
+                    />
+                    <a href="${this.escapeHTML(product.imageFull)}" 
+                       class="glightbox" 
+                       data-glightbox="gallery: products"
+                       title="${this.escapeHTML(product.name)}">
+                        <span class="gallery-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </span>
+                    </a>
                 </div>
             </div>
         `;

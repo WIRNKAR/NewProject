@@ -25,6 +25,7 @@ const CONFIG = {
 
 const appState = {
     products: [],
+    gallery: [],
     selectedProduct: null,
     formData: {},
     isLoading: false,
@@ -91,6 +92,54 @@ const SAMPLE_PRODUCTS = [
     }
 ];
 
+// ==================== SAMPLE GALLERY DATA ====================
+// Gallery images from completed projects and services
+
+const SAMPLE_GALLERY = [
+    {
+        id: '1',
+        title: 'Structural Steel Project',
+        image: 'assets/images/gallery/project-1.jpg',
+        imageFull: 'assets/images/gallery/project-1.jpg',
+        category: 'Structural'
+    },
+    {
+        id: '2',
+        title: 'Custom Metal Gates',
+        image: 'assets/images/gallery/project-2.jpg',
+        imageFull: 'assets/images/gallery/project-2.jpg',
+        category: 'Gates'
+    },
+    {
+        id: '3',
+        title: 'Stainless Steel Installation',
+        image: 'assets/images/gallery/project-3.jpg',
+        imageFull: 'assets/images/gallery/project-3.jpg',
+        category: 'Industrial'
+    },
+    {
+        id: '4',
+        title: 'Pipe Welding Work',
+        image: 'assets/images/gallery/project-4.jpg',
+        imageFull: 'assets/images/gallery/project-4.jpg',
+        category: 'Installation'
+    },
+    {
+        id: '5',
+        title: 'Machinery Repair',
+        image: 'assets/images/gallery/project-5.jpg',
+        imageFull: 'assets/images/gallery/project-5.jpg',
+        category: 'Repair'
+    },
+    {
+        id: '6',
+        title: 'Custom Fabrication Project',
+        image: 'assets/images/gallery/project-6.jpg',
+        imageFull: 'assets/images/gallery/project-6.jpg',
+        category: 'Custom'
+    }
+];
+
 // ==================== INITIALIZATION ====================
 
 /**
@@ -118,6 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeApp() {
     loadProducts();
     renderProducts();
+    loadGallery();
+    renderGallery();
 }
 
 /**
@@ -217,12 +268,65 @@ function renderProducts() {
 }
 
 /**
- * Initialize GLightbox for product image popups
+ * Load gallery images from sample data
+ * TODO: Replace with API call
+ */
+function loadGallery() {
+    appState.gallery = SAMPLE_GALLERY;
+    console.log(`🖼️ Loaded ${appState.gallery.length} gallery images`);
+}
+
+/**
+ * Render gallery images to the DOM
+ */
+function renderGallery() {
+    const galleryGrid = document.getElementById('galleryGrid');
+    
+    if (!galleryGrid) {
+        console.warn('⚠️ Gallery grid not found');
+        return;
+    }
+    
+    if (!appState.gallery || appState.gallery.length === 0) {
+        galleryGrid.innerHTML = '<p class="col-12 text-center text-muted">No gallery items available</p>';
+        return;
+    }
+    
+    const galleryHTML = appState.gallery
+        .map(item => `
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
+                <div class="gallery-item">
+                    <img src="${item.image}" alt="${item.title}" class="img-fluid">
+                    <a href="${item.imageFull}" class="glightbox" data-glightbox="gallery: gallery" title="${item.title}">
+                        <span class="gallery-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        `)
+        .join('');
+    
+    galleryGrid.innerHTML = galleryHTML;
+    
+    // Reinitialize AOS for dynamically added elements
+    if (window.AOS && !CONFIG.REDUCE_MOTION) {
+        AOS.refresh();
+    }
+    
+    // Reinitialize GLightbox for dynamically added images
+    if (window.GLightbox) {
+        initGLightbox();
+    }
+}
+
+/**
+ * Initialize GLightbox for product and gallery image popups
  */
 function initGLightbox() {
     if (window.GLightbox) {
         GLightbox({
-            selector: '.glightbox-product',
+            selector: '.glightbox-product, .glightbox',
             afterOpenGallery: () => {
                 console.log('📸 Image popup opened');
             }
