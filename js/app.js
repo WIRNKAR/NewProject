@@ -9,10 +9,10 @@
 
 const CONFIG = {
     // WhatsApp Business Number (Format: +country_code + number)
-    WHATSAPP_NUMBER: '+1234567890',  // CHANGE THIS TO YOUR BUSINESS NUMBER
+    WHATSAPP_NUMBER: '+237676866995',  // Beli Metal Fabrication - Douala, Cameroon
     
     // Application Settings
-    PRODUCT_CURRENCY: 'USD',
+    PRODUCT_CURRENCY: 'XAF',  // CFA Francs (Cameroon)
     FORM_SUBMIT_DELAY: 500,
     
     // Feature Flags
@@ -37,51 +37,57 @@ const appState = {
 const SAMPLE_PRODUCTS = [
     {
         id: '1',
-        name: 'Premium Leather Handbag',
-        price: '29.99',
-        description: 'High-quality leather handbag with adjustable straps',
-        image: 'https://via.placeholder.com/400x400?text=Product+1',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+1+Full'
+        name: 'Structural Steel Welding',
+        price: '45000',
+        description: 'Professional structural welding for buildings, bridges, and industrial structures. Premium quality with full inspection.',
+        image: 'assets/images/products/structural-steel.jpg',
+        imageFull: 'assets/images/products/structural-steel.jpg',
+        category: 'Structural'
     },
     {
         id: '2',
-        name: 'Classic Watch',
-        price: '49.99',
-        description: 'Elegant timepiece with stainless steel case',
-        image: 'https://via.placeholder.com/400x400?text=Product+2',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+2+Full'
+        name: 'Metal Gates & Barriers',
+        price: '35000',
+        description: 'Custom designed metal gates, security barriers, and decorative iron work. Durable and weather-resistant.',
+        image: 'assets/images/products/metal-gates.jpg',
+        imageFull: 'assets/images/products/metal-gates.jpg',
+        category: 'Custom Work'
     },
     {
         id: '3',
-        name: 'Sunglasses Collection',
-        price: '39.99',
-        description: 'UV protection with trendy design',
-        image: 'https://via.placeholder.com/400x400?text=Product+3',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+3+Full'
+        name: 'Stainless Steel Fabrication',
+        price: '55000',
+        description: 'Food-grade stainless steel fabrication for kitchens, restaurants, and industrial applications.',
+        image: 'assets/images/products/stainless-steel.jpg',
+        imageFull: 'assets/images/products/stainless-steel.jpg',
+        category: 'Industrial'
     },
     {
         id: '4',
-        name: 'Wireless Headphones',
-        price: '79.99',
-        description: 'Noise-canceling with premium sound quality',
-        image: 'https://via.placeholder.com/400x400?text=Product+4',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+4+Full'
+        name: 'Pipe Welding & Installation',
+        price: '28000',
+        description: 'High-pressure pipe welding for plumbing, gas lines, and hydraulic systems. Certified welders.',
+        image: 'assets/images/products/pipe-welding.jpg',
+        imageFull: 'assets/images/products/pipe-welding.jpg',
+        category: 'Installation'
     },
     {
         id: '5',
-        name: 'Phone Case',
-        price: '19.99',
-        description: 'Durable protection with stylish design',
-        image: 'https://via.placeholder.com/400x400?text=Product+5',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+5+Full'
+        name: 'Machinery Repair & Maintenance',
+        price: '38000',
+        description: 'Industrial machinery repair, restoration, and preventive maintenance. Quick turnaround time.',
+        image: 'assets/images/products/machinery-repair.jpg',
+        imageFull: 'assets/images/products/machinery-repair.jpg',
+        category: 'Repair'
     },
     {
         id: '6',
-        name: 'Portable Charger',
-        price: '34.99',
-        description: 'Fast charging 20000mAh power bank',
-        image: 'https://via.placeholder.com/400x400?text=Product+6',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Product+6+Full'
+        name: 'Custom Metal Fabrication',
+        price: '42000',
+        description: 'Bespoke metal fabrication for unique projects. From concept to completion in 24 hours.',
+        image: 'assets/images/products/custom-fabrication.jpg',
+        imageFull: 'assets/images/products/custom-fabrication.jpg',
+        category: 'Custom Work'
     }
 ];
 
