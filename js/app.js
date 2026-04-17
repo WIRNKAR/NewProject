@@ -9,10 +9,10 @@
 
 const CONFIG = {
     // WhatsApp Business Number (Format: +country_code + number)
-    WHATSAPP_NUMBER: '+23767686995',  // Beli Metal Fabrication WhatsApp
+    WHATSAPP_NUMBER: '+237676866995',  // Beli Metal Fabrication - Douala, Cameroon
     
     // Application Settings
-    PRODUCT_CURRENCY: 'XAF',
+    PRODUCT_CURRENCY: 'XAF',  // CFA Francs (Cameroon)
     FORM_SUBMIT_DELAY: 500,
     
     // Feature Flags
@@ -32,56 +32,62 @@ const appState = {
 };
 
 // ==================== SAMPLE PRODUCTS DATA ====================
-// Metal Fabrication Products for Beli
+// Replace with actual product data or fetch from API
 
 const SAMPLE_PRODUCTS = [
     {
         id: '1',
-        name: 'Steel Structural Beams',
-        price: 'Quote on Request',
-        description: 'High-quality steel beams for construction and infrastructure projects',
-        image: 'https://via.placeholder.com/400x400?text=Steel+Beams',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Steel+Beams+Full'
+        name: 'Structural Steel Welding',
+        price: '45000',
+        description: 'Professional structural welding for buildings, bridges, and industrial structures. Premium quality with full inspection.',
+        image: 'assets/images/products/structural-steel.jpg',
+        imageFull: 'assets/images/products/structural-steel.jpg',
+        category: 'Structural'
     },
     {
         id: '2',
-        name: 'Custom Welded Frames',
-        price: 'Quote on Request',
-        description: 'Custom fabricated metal frames for various industrial applications',
-        image: 'https://via.placeholder.com/400x400?text=Welded+Frames',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Welded+Frames+Full'
+        name: 'Metal Gates & Barriers',
+        price: '35000',
+        description: 'Custom designed metal gates, security barriers, and decorative iron work. Durable and weather-resistant.',
+        image: 'assets/images/products/metal-gates.jpg',
+        imageFull: 'assets/images/products/metal-gates.jpg',
+        category: 'Custom Work'
     },
     {
         id: '3',
-        name: 'Steel Staircases',
-        price: 'Quote on Request',
-        description: 'Modern and durable steel staircases with custom designs',
-        image: 'https://via.placeholder.com/400x400?text=Staircases',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Staircases+Full'
+        name: 'Stainless Steel Fabrication',
+        price: '55000',
+        description: 'Food-grade stainless steel fabrication for kitchens, restaurants, and industrial applications.',
+        image: 'assets/images/products/stainless-steel.jpg',
+        imageFull: 'assets/images/products/stainless-steel.jpg',
+        category: 'Industrial'
     },
     {
         id: '4',
-        name: 'Metal Gates & Railings',
-        price: 'Quote on Request',
-        description: 'Decorative and functional metal gates with elegant designs',
-        image: 'https://via.placeholder.com/400x400?text=Gates+Railings',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Gates+Railings+Full'
+        name: 'Pipe Welding & Installation',
+        price: '28000',
+        description: 'High-pressure pipe welding for plumbing, gas lines, and hydraulic systems. Certified welders.',
+        image: 'assets/images/products/pipe-welding.jpg',
+        imageFull: 'assets/images/products/pipe-welding.jpg',
+        category: 'Installation'
     },
     {
         id: '5',
-        name: 'Industrial Piping',
-        price: 'Quote on Request',
-        description: 'High-grade welded pipes for industrial and commercial use',
-        image: 'https://via.placeholder.com/400x400?text=Industrial+Pipes',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Industrial+Pipes+Full'
+        name: 'Machinery Repair & Maintenance',
+        price: '38000',
+        description: 'Industrial machinery repair, restoration, and preventive maintenance. Quick turnaround time.',
+        image: 'assets/images/products/machinery-repair.jpg',
+        imageFull: 'assets/images/products/machinery-repair.jpg',
+        category: 'Repair'
     },
     {
         id: '6',
-        name: 'Custom Metal Containers',
-        price: 'Quote on Request',
-        description: 'Custom-built metal containers and tanks for storage solutions',
-        image: 'https://via.placeholder.com/400x400?text=Metal+Containers',
-        imageFull: 'https://via.placeholder.com/1000x1000?text=Metal+Containers+Full'
+        name: 'Custom Metal Fabrication',
+        price: '42000',
+        description: 'Bespoke metal fabrication for unique projects. From concept to completion in 24 hours.',
+        image: 'assets/images/products/custom-fabrication.jpg',
+        imageFull: 'assets/images/products/custom-fabrication.jpg',
+        category: 'Custom Work'
     }
 ];
 
@@ -112,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeApp() {
     loadProducts();
     renderProducts();
-    renderGallery();
 }
 
 /**
@@ -208,44 +213,6 @@ function renderProducts() {
     // Reinitialize GLightbox for dynamically added images
     if (window.GLightbox) {
         initGLightbox();
-    }
-}
-
-/**
- * Render gallery items to the DOM
- */
-function renderGallery() {
-    const galleryGrid = document.getElementById('galleryGrid');
-    
-    if (!galleryGrid) {
-        console.warn('⚠️ Gallery grid not found');
-        return;
-    }
-    
-    // Use products as gallery items
-    const galleryHTML = appState.products
-        .map(item => `
-            <div class="gallery-item" data-aos="fade-up">
-                <img src="${item.image}" alt="${item.name}" loading="lazy">
-                <a href="${item.imageFull}" class="glightbox-gallery" data-glightbox="gallery: welding">
-                    <span class="gallery-icon"><i class="fas fa-search-plus"></i></span>
-                </a>
-            </div>
-        `)
-        .join('');
-    
-    galleryGrid.innerHTML = galleryHTML;
-    
-    // Reinitialize AOS for dynamically added elements
-    if (window.AOS && !CONFIG.REDUCE_MOTION) {
-        AOS.refresh();
-    }
-    
-    // Reinitialize GLightbox for gallery
-    if (window.GLightbox) {
-        GLightbox({
-            selector: '.glightbox-gallery',
-        });
     }
 }
 
